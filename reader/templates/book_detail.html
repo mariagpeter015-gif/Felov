@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FELOV: Book Details</title>
+    <style>
+        body {
+            font-family: Ink Free;
+            background-color: #722f37;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 7px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            width: 400px;
+            align-items:center;
+        }
+        .button {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px;
+            background: white;
+            color: #722f37;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h2>{{ book.title }}</h2>
+    <p><strong>Author:</strong> {{ book.author }}</p>
+    <p><strong>Description:</strong> {{ book.description }}</p>
+    <p><strong>Status:</strong> {{ book.is_finished|yesno:"Finished,Reading" }}</p>
+    <a href="{% url 'edit_book' book.id %}" class="button">edit</a>
+    <a href="{% url 'home' %}" class="button" style="margin-left: 10px;">back</a>
+</div>
+</body>
+</html>

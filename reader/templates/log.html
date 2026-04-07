@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FELOV: Login</title>
+    <style>
+        body{
+        font-family: Ink Free;
+        background-color: #722f37;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 99vh;
+        }
+        .logincon{
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        border-radius: 7px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        width: 350px;
+        align-items:center;
+        }
+
+        .login-button {
+        width: 100%;
+        padding: 5px;
+        background-color: #ffffff;
+        color: #722f37;
+        border: none;
+        border-radius: 5px;
+        cursor: grab;
+        font-weight: bold;
+        font-family: Ink Free;
+        margin-left : 0px;
+    }
+        .entry-box{
+        width: 73.5%;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <h1 style="font-family: Viner Hand ITC; color: #ffffff; margin-bottom: 5px;">FELOV</h1>
+    <div class="logincon">
+    <h3>LOGIN 🌿</h3>
+    <label for="name">Username</label>
+    <input type="text" id="name" name="name" placeholder="enter username" style="font-family: Ink Free; margin-left: 10px;" class="entry-box" required/><br>
+    <label for="pwd">Password</label>
+    <input type="password" id="pwd" name="pwd" placeholder="enter password" style="font-family: Ink Free;margin-left: 12px;" class="entry-box" required/><br><br>
+        <a href="{% url 'home' %}">
+        <button type="submit" class="login-button">login</button><br>
+        </a>
+    <p style="text-align: center;">Not registered? <a href="{% url 'register' %}" style="color: #ffffff">Create an account</a></p>
+        </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FELOV: Register</title>
+  <style>
+    body{
+        font-family: Ink Free;
+        background-color: #722f37;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 99vh;
+        }
+    .logincon{
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        border-radius: 7px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        width: 350px;
+        height: 325px;
+        align-items:center;
+        }
+    .entry-box{
+        width: 100%;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        }
+    .login-button {
+        width: 100%;
+        padding: 5px;
+        background-color: #ffffff;
+        color: #722f37;
+        border: none;
+        border-radius: 5px;
+        cursor: grab;
+        font-weight: bold;
+        font-family: Ink Free;
+        margin-left : 0px;
+    }
+  </style>
+</head>
+<body>
+<form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+    <h1 style="font-family: Viner Hand ITC; color: #ffffff; margin-bottom: 5px;">FELOV</h1>
+    <div class="logincon">
+    <h3>REGISTER &#127807;</h3>
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="enter fullname" style="font-family: Ink Free; width: 248px; height: 20px; margin-left: 17px;" class="entry-box" required/><br>
+    <label for="mail">Email ID</label>
+    <input type="email" id="mail" name="mail" placeholder="enter email" style="font-family: Ink Free; width: 248px; height: 20px; margin-left: 22px;" class="entry-box" required/><br>
+     <label for="uname">Username</label>
+    <input type="text" id="uname" name="uname" placeholder="enter username" style="font-family: Ink Free; width: 248px; height: 20px;margin-left: 17px;" class="entry-box" required/><br>
+      <label for="pwd">Password</label>
+    <input type="password" id="pwd" name="pwd" placeholder="enter password" style="font-family: Ink Free; width: 247.336px;margin-left:20px;" class="entry-box" required/><br><br>
+        <button type="submit" class="login-button">register</button><br>
+        </div>
+</form>
+</body>
+</html>

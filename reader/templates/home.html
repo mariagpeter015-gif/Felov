@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FELOV: Home</title>
+    <style>
+        body {
+            font-family: Ink Free;
+            background-color: #722f37;
+            color: white;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .book-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px auto;
+            width: 50%;
+        }
+        .book-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .button {
+            padding: 6px 12px;
+            background: white;
+            color: #722f37;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="top-bar">
+    <a href="{% url 'logout' %}" class="button">Logout</a>-
+    <a href="{% url 'add_book' %}" class="button">Add Book</a>
+</div>
+
+<h1 style="font-family: Viner Hand ITC;">FELOV</h1>
+
+
+{% if books %}
+    {% for book in books %}
+        <div class="book-card">
+            <h2>{{ book.title }}</h2>
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p><strong>Status:</strong> {{ book.is_finished|yesno:"Finished,Reading" }}</p>
+            <div class="book-actions">
+                <a href="{% url 'book_detail' book.id %}" class="button">View</a>
+                <a href="{% url 'edit_book' book.id %}" class="button">Edit</a>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p style="text-align: center;">No books added yet? Start by <a href="{% url 'add_book' %}" style="color: #ffffff; text-decoration: underline;">adding one</a>.</p>
+{% endif %}
+</body>
+</html>
